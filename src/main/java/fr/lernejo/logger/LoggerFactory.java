@@ -1,11 +1,7 @@
 package fr.lernejo.logger;
 
-public class LoggerFactory implements Logger {
-    @Override
-    public void log(String message) {}
-
+public class LoggerFactory  {
     public static Logger getLogger(String name) {
-
-        return null;
+        return new ConsoleLogger();
     }
 }
