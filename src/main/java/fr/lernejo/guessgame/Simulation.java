@@ -3,21 +3,21 @@ package fr.lernejo.guessgame;
 import fr.lernejo.logger.Logger;
 import fr.lernejo.logger.LoggerFactory;
 
-public class Simulation {
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
+public class Simulation {
     private final Logger logger = LoggerFactory.getLogger("simulation");
     private final Player player;  //TODO add variable type
     private long numberToGuess; //TODO add variable type
-
     public Simulation(Player player) {
         //TODO implement me
         this.player = player;
     }
-
     public void initialize(long numberToGuess) {
         //TODO implement me
         this.numberToGuess = numberToGuess;
-        loopUntilPlayerSucceed();
     }
 
     /**
@@ -37,12 +37,24 @@ public class Simulation {
         }
     }
 
-    public void loopUntilPlayerSucceed() {
+    public void loopUntilPlayerSucceed(long maxI) {
         //TODO implement me
+        long timerStart = System.currentTimeMillis();
         boolean response = nextRound();
-        while(!response) {
+        long i = 0;
+
+        while((!response) && (maxI > i)) {
             response = nextRound();
+            i++;
         }
-        logger.log("You won !");
+        long timerEnd = System.currentTimeMillis();
+        long finalSec = timerEnd - timerStart;
+        DateFormat simple = new SimpleDateFormat("mm:ss:SSS");
+        Date result = new Date(finalSec);
+        logger.log(simple.format(result));
+        if (response)
+            logger.log("You won !");
+        else
+            logger.log("You lose noob !");
     }
 }
