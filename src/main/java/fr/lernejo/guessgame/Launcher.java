@@ -20,7 +20,7 @@ public class Launcher {
             sim.loopUntilPlayerSucceed(1000);
         }
         else
-            System.out.print("Pour déviner soi-même l'âge du capitaine, " +
+            System.out.print("Pour deviner soi-même l'âge du capitaine, " +
                 "il faut lancer la programme avec le paramètre -interactice. " +
                 "Si vous voulez que le programme cherche lui-même l'aĝe du capitaine, " +
                 "entrez en paramètres -auto, puis l'âge que vous voulez que cherche l'ordinateur.");
