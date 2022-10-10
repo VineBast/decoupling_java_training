@@ -19,16 +19,11 @@ public class ComputerPlayer implements Player {
             guess = (previousGuess + previousPreviousGuess) / 2 ;
         }
         this.previousGuess = guess;
-        System.out.println(guess);
         return guess;
     }
 
     @Override
     public void respond(boolean lowerOrGreater) {
         this.lowerOrGreater = lowerOrGreater;
-        if (lowerOrGreater)
-            logger.log("Lower");
-        else
-            logger.log("Greater");
     }
 }
